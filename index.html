@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Discover trending movies, popular TV shows, and top-rated films with FlickNest."
+    >
+
+    <title>FlickNest | Discover Movies & TV Shows</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header" id="home">
+        <div class="flink_header">
+
+            <div class="logo_nav">
+
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="#home" aria-label="FlickNest Home">
+                        FLICK<span class="nest">NEST</span>
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav aria-label="Main navigation">
+                    <ul class="header_nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#movies">Movies</a></li>
+                        <li><a href="#top-rated">Top Rated</a></li>
+                        <li><a href="#trending">Popular</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Header Actions -->
+            <div class="header_icon">
+
+                <a href="#watchlist" aria-label="Watchlist">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+
+                <button
+                    type="button"
+                    id="languageBtn"
+                    aria-label="Choose language"
+                >
+                    <i class="fa-solid fa-earth-americas"></i>
+                </button>
+
+                <a href="#login" id="loginLink">Login</a>
+
+                <button
+                    type="button"
+                    id="headerSearchBtn"
+                    aria-label="Go to movie search"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Movie Search -->
+    <section class="input_section" id="movies">
+        <div class="input">
+
+            <label for="movieSearch" class="visually_hidden">
+                Search movies and TV shows
+            </label>
+
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+
+            <input
+                type="search"
+                id="movieSearch"
+                placeholder="Search for a movie, TV show, person..."
+                autocomplete="off"
+            >
+
+        </div>
+    </section>
+
+
+    <!-- Welcome Slider -->
+    <section class="slider" aria-label="Featured movies">
+
+        <div class="img_container">
+
+            <img
+                src="images/muhd-asyraaf-Ti8UF_rJlYo-unsplash.jpg"
+                alt="Featured cinematic scene"
+                fetchpriority="high"
+            >
+
+            <img
+                src="images/keagan-henman-Jfz6IdxMSuQ-unsplash.jpg"
+                alt="Featured movie background"
+                loading="lazy"
+            >
+
+            <img
+                src="images/amjith-s-zh-cgU1n7Q4-unsplash.jpg"
+                alt="Cinematic landscape"
+                loading="lazy"
+            >
+
+            <img
+                src="images/mert-toker-AwhZiUwh_WM-unsplash.jpg"
+                alt="Movie atmosphere"
+                loading="lazy"
+            >
+
+            <img
+                src="images/mark-basarab-1OtUkD_8svc-unsplash.jpg"
+                alt="Featured film scene"
+                loading="lazy"
+            >
+
+            <img
+                src="images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg"
+                alt="Cinematic movie scene"
+                loading="lazy"
+            >
+
+            <img
+                src="images/darwin-vegher-dYXkL__ryl0-unsplash.jpg"
+                alt="Featured visual"
+                loading="lazy"
+            >
+
+        </div>
+
+        <!-- Welcome Text -->
+        <div class="img_text">
+            <h1>Welcome.</h1>
+            <p>
+                Millions of movies, TV shows and people to discover.
+                Explore now.
+            </p>
+        </div>
+
+        <!-- Slider Controls -->
+        <div id="img_Btn">
+            <div class="img_Btn">
+
+                <button
+                    type="button"
+                    class="prev"
+                    onclick="prev()"
+                    aria-label="Previous slide"
+                >
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <p id="slideTitle" aria-live="polite">
+                    Spider-Man: Brand New Day
+                </p>
+
+                <button
+                    type="button"
+                    class="next"
+                    onclick="next()"
+                    aria-label="Next slide"
+                >
+                    <i class="fa-solid fa-angle-right"></i>
+                </button>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Trending Movies -->
+    <section class="trending_section" id="trending">
+
+        <div class="trend_head">
+
+            <div>
+                <h2>Trending Movies</h2>
+                <p>Discover what's popular right now.</p>
+            </div>
+
+            <div class="today" aria-label="Trending time period">
+
+                <button
+                    type="button"
+                    class="active"
+                    id="todayBtn"
+                    aria-pressed="true"
+                >
+                    Today
+                </button>
+
+                <button
+                    type="button"
+                    id="weekBtn"
+                    aria-pressed="false"
+                >
+                    This Week
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- JavaScript will add movie cards here -->
+        <div class="trending" id="movieContainer">
+            <div class="movie_card"></div>
+        </div>
+
+    </section>
+
+
+    <!-- Top Rated Movies -->
+    <section class="top_rated_section" id="top-rated">
+
+        <div class="trend_head">
+            <div>
+                <h2>Top Rated Movies</h2>
+                <p>Explore movies loved by audiences.</p>
+            </div>
+        </div>
+
+        <!-- Top-rated movie cards can be added here -->
+        <div class="top_rated_movies" id="topRatedContainer"></div>
+
+    </section>
+
+
+    <!-- FAQs -->
+    <section class="FAQs" id="faqs">
+
+        <div class="FAQs_head">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about FlickNest.</p>
+        </div>
+
+        <div class="FAQs_Question">
+
+            <div class="question">
+                <button
+                    type="button"
+                    class="sign"
+                    aria-expanded="false"
+                >
+                    <span>What is FlickNest?</span>
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+
+                <p>
+                    FlickNest is a movie discovery website where you can
+                    explore trending and popular movies.
+                </p>
+            </div>
+
+            <div class="question">
+                <button
+                    type="button"
+                    class="sign"
+                    aria-expanded="false"
+                >
+                    <span>How can I search for a movie?</span>
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+
+                <p>
+                    Enter a movie title in the search bar to find
+                    matching movies.
+                </p>
+            </div>
+
+            <div class="question">
+                <button
+                    type="button"
+                    class="sign"
+                    aria-expanded="false"
+                >
+                    <span>Are the movies available to watch here?</span>
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+
+                <p>
+                    FlickNest helps you discover movies. Streaming
+                    availability depends on external services.
+                </p>
+            </div>
+
+            <div class="question">
+                <button
+                    type="button"
+                    class="sign"
+                    aria-expanded="false"
+                >
+                    <span>Where does the movie information come from?</span>
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                </button>
+
+                <p>
+                    Movie information and posters are provided using
+                    The Movie Database (TMDB) API.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+
+        <div class="footer_head">
+
+            <div class="footer_container">
+
+                <!-- Logo and Description -->
+                <div class="footer_about">
+
+                    <h2 class="footer_logo">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        Flick<span>Nest</span>
+                    </h2>
+
+                    <p>
+                        Your ultimate destination for discovering
+                        trending movies, hidden gems and unforgettable stories.
+                    </p>
+
+                    <div class="footer_socials">
+
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a
+                            href="https://instagram.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a
+                            href="https://linkedin.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                        >
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Explore Links -->
+                <div class="footer_links">
+
+                    <h3>Explore <span class="line"></span></h3>
+
+                    <a href="#home">Home</a>
+                    <a href="#trending">Trending Movies</a>
+                    <a href="#trending">Popular Movies</a>
+                    <a href="#top-rated">Top Rated</a>
+
+                </div>
+
+
+                <!-- Genre Links -->
+                <div class="footer_links">
+
+                    <h3>Discover <span class="line"></span></h3>
+
+                    <a href="#trending">Action</a>
+                    <a href="#trending">Comedy</a>
+                    <a href="#trending">Thriller</a>
+                    <a href="#trending">Sci-Fi</a>
+
+                </div>
+
+
+                <!-- Newsletter -->
+                <div class="footer_newsletter">
+
+                    <h3>Stay in the Loop</h3>
+
+                    <p>
+                        Get movie recommendations and updates.
+                    </p>
+
+                    <form class="newsletter_form" id="newsletterForm">
+
+                        <label
+                            for="emailInput"
+                            class="visually_hidden"
+                        >
+                            Email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="emailInput"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                        <button type="submit" aria-label="Subscribe">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </form>
+
+                    <p
+                        id="newsletterMessage"
+                        class="newsletter_message"
+                        aria-live="polite"
+                    ></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+
+            <p>© 2026 FlickNest. All rights reserved.</p>
+
+            <p class="tmdb_text">
+                <i class="fa-solid fa-film"></i>
+                Movie data powered by TMDB
+            </p>
+
+            <button
+                type="button"
+                class="back_top"
+                id="backTop"
+            >
+                Back to Top
+                <i class="fa-solid fa-arrow-up"></i>
+            </button>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
